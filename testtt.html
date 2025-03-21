@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Script</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .response {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .input-box {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Chat</h1>
+        <p id="question1">What's your name?</p>
+        <input type="text" id="nameInput" class="input-box">
+        <button class="button" onclick="checkName()">Submit</button>
+
+        <div id="response1" class="response"></div>
+        
+        <div id="question2" style="display: none;">
+            <p>Are you really her? (yes or no)</p>
+            <input type="text" id="realInput" class="input-box">
+            <button class="button" onclick="checkReal()">Submit</button>
+        </div>
+
+        <div id="question3" style="display: none;">
+            <p>I kinda miss you just a little bit tho ;) Do you miss me? (yes or no)</p>
+            <input type="text" id="missInput" class="input-box">
+            <button class="button" onclick="checkMiss()">Submit</button>
+        </div>
+
+        <div id="question4" style="display: none;">
+            <p>Text me '69' if you come till here. Type 'ok' or 'no'</p>
+            <input type="text" id="textInput" class="input-box">
+            <button class="button" onclick="checkText()">Submit</button>
+        </div>
+
+        <div id="finalResponse" class="response"></div>
+    </div>
+
+    <script>
+        function checkName() {
+            var name = document.getElementById("nameInput").value;
+            if (name === "laila" || name === "Laila") {
+                document.getElementById("response1").innerText = "Laila Sanchez??";
+                document.getElementById("question2").style.display = "block";
+            } else {
+                document.getElementById("response1").innerText = "You think I'm dumb? Try again from the beginning.";
+            }
+        }
+
+        function checkReal() {
+            var realAnswer = document.getElementById("realInput").value.toLowerCase();
+            if (realAnswer === "yes") {
+                document.getElementById("question3").style.display = "block";
+            } else if (realAnswer === "no") {
+                document.getElementById("response1").innerText = "Fuck you bitch!";
+            } else {
+                document.getElementById("response1").innerText = "Little princess can't type xD";
+            }
+        }
+
+        function checkMiss() {
+            var missAnswer = document.getElementById("missInput").value.toLowerCase();
+            if (missAnswer === "yes") {
+                document.getElementById("finalResponse").innerText = "Of course you do! Come near me, let's have a sleepover ;)";
+                document.getElementById("question4").style.display = "block";
+            } else if (missAnswer === "no") {
+                document.getElementById("finalResponse").innerText = "Fuck you Bitch";
+            } else {
+                document.getElementById("finalResponse").innerText = "Little princess can't type xD";
+            }
+        }
+
+        function checkText() {
+            var textAnswer = document.getElementById("textInput").value.toLowerCase();
+            if (textAnswer === "ok") {
+                document.getElementById("finalResponse").innerText = "Good girl";
+            } else if (textAnswer === "no") {
+                document.getElementById("finalResponse").innerText = "You're a bitch";
+            } else {
+                document.getElementById("finalResponse").innerText = "You're slow? Type the right thing, princess";
+            }
+        }
+    </script>
+</body>
+</html>
